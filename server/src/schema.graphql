@@ -1,0 +1,15 @@
+type Query {
+	feed(offset: String): [Link!]!
+}
+
+type Mutation {
+	post(url: String!, description: String!): Link!
+}
+
+type Link {
+	articleId: ID!
+	thumb: String!
+	title: String!
+	ctime: String!
+	comment: String!
+}

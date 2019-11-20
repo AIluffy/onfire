@@ -1,15 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "license": "MIT",
   "dependencies": {
-    "fastify": "^2.4.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "axios": "^0.19.0",
+    "graphql-yoga": "^1.18.3"
+  }
 }
