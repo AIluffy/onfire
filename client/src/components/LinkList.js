@@ -6,8 +6,20 @@ import gql from 'graphql-tag'
 const FEED_QUERY = gql`
   {
     feed {
-        title,
-        thumb
+        matches {
+            teams {
+                name
+                score
+            }
+        }
+        links {
+            title,
+            thumb,
+            comment,
+            ctime,
+            articleId
+        }
+        offset
     }
   }
 `
@@ -20,10 +32,10 @@ class LinkList extends Component {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
 
-                    const linksToRender = data.feed
+                    const linksToRender = data.feed.links
 
                     return (
-                        <div>
+                        <div className="news-list">
                             {linksToRender.map(link => <Link key={link.title} link={link} />)}
                         </div>
                     )
