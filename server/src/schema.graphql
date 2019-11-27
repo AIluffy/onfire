@@ -9,7 +9,7 @@ type Mutation {
 type Feed {
 	links: [Link!]!
 	matches: [Match]
-	offset: String
+	offset: String!
 }
 
 type Match {

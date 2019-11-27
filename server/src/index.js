@@ -68,14 +68,24 @@ const resolvers = {
 
             const feeds = res.data.data;
             const links = feeds.filter(feed => feed.type === FEED_TYPE['LINK']).map(generateLink)
-            const matches = feeds.find(feed => feed.type === FEED_TYPE['MATCH']).matches.map(generateMatch)
+            const matchOfFeed = feeds.find(feed => feed.type === FEED_TYPE['MATCH']);
+
+            let matches = undefined;
+
+            if (matchOfFeed) {
+                matches = matchOfFeed.matches.map(generateMatch)
+            }
+
             const nextOffset = res.data['next_offset']
 
-            return {
+            return matches ? {
                 links,
                 matches,
                 offset: nextOffset
-            }
+            } : {
+                    links,
+                    offset: nextOffset
+                }
         }
     }
 }

@@ -4,8 +4,8 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const FEED_QUERY = gql`
-  {
-    feed {
+  query FeedQuery($offset: String){
+    feed(offset: $offset) {
         matches {
             teams {
                 name
@@ -25,6 +25,12 @@ const FEED_QUERY = gql`
 `
 
 class LinkList extends Component {
+    // _getQueryVariables = () => {
+    //     return {
+    //         offset: this.props.
+    //     }
+    // }
+
     render () {
         return (
             <Query query={FEED_QUERY}>
