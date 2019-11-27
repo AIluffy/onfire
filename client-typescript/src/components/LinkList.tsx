@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';
 import ReactPullLoad, { STATS } from 'react-pullload';
 import { Feed } from '../interface/link';
 import Link from './Link';
+import { uniqBy } from 'lodash';
 
 interface IQuery {
 	feed: Feed;
@@ -64,6 +65,30 @@ const LinkList: React.FC<Props> = () => {
 			return false;
 		}
 
+		fetchMore({
+			variables: {
+				offset: ''
+			},
+			updateQuery: (prev, { fetchMoreResult }) => {
+				setAction(STATS.refreshed);
+
+				if (!fetchMoreResult) return prev;
+
+				const preLinks = prev.feed.links;
+				const newLinks = fetchMoreResult.feed.links;
+
+				const links = [...newLinks, ...preLinks];
+
+				return Object.assign({}, prev, {
+					feed: {
+						__typename: prev.feed.__typename,
+						links: uniqBy(links, 'articleId'),
+						offset: fetchMoreResult.feed.offset
+					}
+				});
+			}
+		});
+
 		setAction(STATS.refreshing);
 	};
 
@@ -71,8 +96,6 @@ const LinkList: React.FC<Props> = () => {
 		if (action === STATS.loading) {
 			return false;
 		}
-
-		console.log(data.feed.offset);
 
 		fetchMore({
 			variables: {
