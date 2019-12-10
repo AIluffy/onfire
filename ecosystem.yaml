@@ -1,0 +1,24 @@
+apps:
+    - script: server/src/index.js
+      name: onfire
+      env:
+        COMMON_VARIABLE: true
+      env_production:
+        NODE_ENV: production
+  deploy:
+    production:
+      user: ai
+      host:
+        - 118.31.103.57
+      port: '38888'
+      ref: origin/master
+      repo: git@github.com:AIluffy/onfire.git
+      # 服务器上项目部署的目录，会在/www/node-deploy-static下初始化一个production文件夹
+      # 配置文件会自动从git上面拉取静态网站代码到此路径
+      path: /www/onfire/production
+      
+      ssh_options: StrictHostKeyChecking=no
+      pre-deploy: git fetch --all
+      post-deploy: 'cd client-typescript && yarn && yarn build && cd server && yarn && node src/index.js'
+      env:
+        NODE_ENV: production
