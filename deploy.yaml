@@ -17,6 +17,6 @@ deploy:
         repo: git@github.com:AIluffy/onfire.git
         path: /home/ai/www/onfire/production
         pre-deploy: git fetch --all
-        post-deploy: cd server && yarn && pm2 reload deploy.yaml --env production
+        post-deploy: cd server && yarn && cd .. && pm2 reload deploy.yaml --env production
         env:
             NODE_ENV: production
