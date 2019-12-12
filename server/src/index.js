@@ -1,6 +1,8 @@
 const { GraphQLServer } = require('graphql-yoga')
 const axios = require('axios')
 const qs = require('querystring');
+const path = require('path');
+const static = require('serve-static')
 
 const ONFIRE_HOST = 'www.bbonfire.com';
 const NEWS_API = '/api/news/roll'
@@ -91,15 +93,17 @@ const resolvers = {
 }
 
 const server = new GraphQLServer({
-    typeDefs: './src/schema.graphql',
+    typeDefs: path.join(__dirname, 'schema.graphql'),
     resolvers,
 })
 
 const options = {
-    port: 8000,
+    port: 36666,
     endpoint: '/graphql',
     subscriptions: '/subscriptions',
     playground: '/playground',
 }
 
-server.start(options, () => console.log(`Server is running on http://localhost:4000`))
+server.express.use(static(path.join(__dirname, '../../', 'client', 'build')))
+
+server.start(options, () => console.log(`Server is running on port ${options.port}`))

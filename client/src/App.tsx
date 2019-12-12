@@ -6,7 +6,7 @@ import LinkList from './components/LinkList';
 import './App.css';
 
 const client = new ApolloClient({
-	uri: 'http://localhost:4000'
+	uri: `${window.location.origin}/graphql`
 });
 
 const App: React.FC = () => {
