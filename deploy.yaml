@@ -1,17 +1,17 @@
 apps:
-  - script: ./server/src/index.js
-    cwd: './'
-    name: 'onfire'
-    env:
-        COMMON_VARIABLE: true
-    env_production:
-        NODE_ENV: production
+    - script: ./server/src/index.js
+      cwd: './'
+      name: 'onfire'
+      env:
+          COMMON_VARIABLE: true
+      env_production:
+          NODE_ENV: production
 
 deploy:
     production:
         user: ai
-        host: 
-          - 118.31.103.57
+        host:
+            - aliyun_ai
         port: '38888'
         ref: origin/master
         ssh_options: StrictHostKeyChecking=no
