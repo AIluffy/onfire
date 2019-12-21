@@ -18,6 +18,7 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
     "babel-plugin-named-asset-import": "^0.3.4",
+    "babel-plugin-react-css-modules": "^5.2.6",
     "babel-preset-react-app": "^9.0.2",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
@@ -45,6 +46,7 @@
     "lib-flexible": "^0.3.2",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "0.8.0",
+    "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.5.0",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -145,5 +147,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@types/react-css-modules": "^4.6.2",
+    "postcss-scss": "^2.0.0"
   }
 }

@@ -1,0 +1,56 @@
+@keyframes pulse {
+	0% {
+		opacity: 0.1;
+	}
+	20% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 0.1;
+	}
+}
+
+.loading-container {
+	padding: 4px 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.loader {
+		width: 28px;
+		height: 28px;
+	}
+
+	svg path {
+		animation-duration: 1s;
+		animation-name: pulse;
+		animation-iteration-count: infinite;
+		color: #3694dc;
+	}
+
+	.bb-7 {
+		animation-delay: -1s;
+	}
+	.bb-6 {
+		animation-delay: -0.875s;
+	}
+	.bb-5 {
+		animation-delay: -0.75s;
+	}
+	.bb-4 {
+		animation-delay: -0.625s;
+	}
+	.bb-3 {
+		animation-delay: -0.5s;
+	}
+	.bb-2 {
+		animation-delay: -0.375s;
+	}
+	.bb-1 {
+		animation-delay: -0.25s;
+	}
+	.bb-0 {
+		animation-delay: -0.125s;
+	}
+}

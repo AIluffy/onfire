@@ -6,6 +6,13 @@ body {
 
 #root {
 	width: 100%;
+	height: 100vh;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
 	font-size: 12px;
+}
+
+p {
+	margin: 0;
 }

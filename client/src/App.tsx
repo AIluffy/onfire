@@ -1,19 +1,24 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import LinkList from './components/LinkList';
-
-import './App.css';
+import BodyContent from './components/BodyContent';
+import NavFooter from './components/NavFooter';
+import TopBar from './components/TopBar';
 
 const client = new ApolloClient({
-	uri: `${window.location.origin}/graphql`
+	// uri: `${window.location.origin}/graphql`
+	uri: 'http://localhost:36666/graphql'
 });
 
 const App: React.FC = () => {
 	return (
-		<ApolloProvider client={client}>
-			<LinkList />
-		</ApolloProvider>
+		<>
+			<TopBar />
+			<ApolloProvider client={client}>
+				<BodyContent />
+			</ApolloProvider>
+			<NavFooter />
+		</>
 	);
 };
 
