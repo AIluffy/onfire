@@ -93,7 +93,7 @@ const resolvers = {
 }
 
 const server = new GraphQLServer({
-    typeDefs: path.join(__dirname, './schema.graphql'),
+    typeDefs: './server/src/schema.graphql',
     resolvers,
 })
 
