@@ -3,6 +3,7 @@ const axios = require('axios')
 const qs = require('querystring');
 const path = require('path');
 const static = require('serve-static')
+const typeDefs = require('./schema');
 
 const ONFIRE_HOST = 'www.bbonfire.com';
 const NEWS_API = '/api/news/roll'
@@ -93,7 +94,7 @@ const resolvers = {
 }
 
 const server = new GraphQLServer({
-    typeDefs: path.join(__dirname, 'schema.graphql'),
+    typeDefs,
     resolvers,
 })
 
