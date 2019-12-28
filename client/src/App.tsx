@@ -6,8 +6,7 @@ import NavFooter from './components/NavFooter';
 import TopBar from './components/TopBar';
 
 const client = new ApolloClient({
-	// uri: `${window.location.origin}/graphql`
-	uri: 'http://localhost:36666/graphql'
+	uri: `${window.location.origin}/graphql`
 });
 
 const App: React.FC = () => {
