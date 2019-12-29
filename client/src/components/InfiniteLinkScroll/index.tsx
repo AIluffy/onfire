@@ -28,6 +28,7 @@ const LinkList: React.FC<Props> = ({ links, onLoadMore, refresh, hasMore }) => {
 					</p>
 				}
 				refreshFunction={() => refresh()}
+				pullDownToRefreshThreshold={100}
 				pullDownToRefresh
 				pullDownToRefreshContent={<RefreshLoading />}
 				releaseToRefreshContent={<RefreshLoading />}

@@ -49,7 +49,7 @@ const LinkListQuery: React.FC<Props> = () => {
 
 		fetchMore({
 			variables: {
-				offset
+				offset: '0'
 			},
 			updateQuery: (prev, { fetchMoreResult }) => {
 				if (!fetchMoreResult) return prev;

@@ -27,3 +27,16 @@
 7. 添加 iconfont
 
 -   使用 svg symbol 的方式
+
+## Todo
+
+[X] 域名备案
+[ ] https
+[ ] service worker
+[ ] icon 更换
+[ ] 弹性滚动禁止
+[ ] 排名
+[ ] docker 化
+[ ] serverless nextjs
+[] sentry
+[] polyfill.js
